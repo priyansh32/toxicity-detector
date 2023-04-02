@@ -35,8 +35,8 @@ export default function Main() {
         ).toFixed(2);
         result_array[i].match = predictions[i].results[0].match;
       }
-      setLoading(false);
       setResult((items) => items.map((item, index) => result_array[index]));
+      setLoading(false);
       return;
     });
   }
@@ -45,13 +45,15 @@ export default function Main() {
       {!modelLoaded ? (
         <LoadingScreen />
       ) : (
-        <>
-          <div className='flex justify-center max-w-3xl mx-auto py-6 sm:px-6 lg:px-8'>
-            <div className='bg-white overflow-hidden shadow rounded-lg w-11/12 max-w-lg'>
+        <div className='flex flex-col justify-evenly min-h-screen'>
+          <div className='flex justify-center mx-auto py-6 sm:px-6 lg:px-8 max-w-3xl w-11/12'>
+            <h1 className='flex-shrink-0 py-4 text-lg font-bold'>
+              Toxicity Detector - TensorflowJS
+            </h1>
+          </div>
+          <div className='flex justify-center mx-auto py-6 sm:px-6 lg:px-8 max-w-3xl w-11/12'>
+            <div className='bg-white overflow-hidden shadow rounded-lg max-w-lg w-full'>
               <div className='px-4 py-5 sm:p-6'>
-                <h1 className='flex-shrink-0 py-4 font-bold'>
-                  Toxicity Detector - TensorflowJS
-                </h1>
                 <div className='min-w-0 flex-1'>
                   <form action='#'>
                     <div className='border-b border-gray-300 focus-within:border-indigo-600'>
@@ -62,7 +64,7 @@ export default function Main() {
                         rows={3}
                         name='comment'
                         id='comment'
-                        className='block w-full border-0 border-b border-transparent p-0 pb-2 resize-none focus:ring-0 focus:border-indigo-600 sm:text-sm'
+                        className='block w-full p-2 focus:ring-0 focus:border-indigo-600 sm:text-sm'
                         placeholder='Add your text...'
                         defaultValue={""}
                       />
@@ -109,11 +111,8 @@ export default function Main() {
               </div>
             </div>
           </div>
-          <div className='flex flex-col justify-center max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
-            <h3 className='text-lg leading-6 font-medium text-gray-900'>
-              Result
-            </h3>
-            <dl className='mt-5 grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7'>
+          <div className='flex flex-col justify-center max-w-7xl w-11/12 mx-auto py-6 sm:px-6 lg:px-8'>
+            <dl className='grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7'>
               {result.map((item) => (
                 <div
                   key={item.label}
@@ -131,7 +130,7 @@ export default function Main() {
               ))}
             </dl>
           </div>
-        </>
+        </div>
       )}
     </>
   );
