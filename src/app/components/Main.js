@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
-import Script from "next/script";
+
+const toxicity = require("@tensorflow-models/toxicity");
+let model;
+toxicity.load(0.7).then((m) => (model = m));
 
 export default function Main() {
   const [result, setResult] = useState([
@@ -13,30 +16,25 @@ export default function Main() {
     { label: "Toxicity", probability: 0, match: false },
   ]);
   const [loading, setLoading] = useState(false);
-  const threshold = 0.7;
+  //   const [model, _] = useState(modell);
 
   function runModel(sentences) {
     let result_array = result;
-    toxicity.load(threshold).then((model) => {
-      console.log(sentences);
-      model.classify(sentences).then((predictions) => {
-        console.log(predictions);
-        for (let i = 0; i < predictions.length; i++) {
-          result_array[i].probability = (
-            predictions[i].results[0].probabilities[1] * 100
-          ).toFixed(2);
-          result_array[i].match = predictions[i].results[0].match;
-        }
-        setLoading(false);
-        setResult((items) => items.map((item, index) => result_array[index]));
-        return;
-      });
+    model.classify(sentences).then((predictions) => {
+      console.log(predictions);
+      for (let i = 0; i < predictions.length; i++) {
+        result_array[i].probability = (
+          predictions[i].results[0].probabilities[1] * 100
+        ).toFixed(2);
+        result_array[i].match = predictions[i].results[0].match;
+      }
+      setLoading(false);
+      setResult((items) => items.map((item, index) => result_array[index]));
+      return;
     });
   }
   return (
     <>
-      <Script src='https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js' />
-      <Script src='https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity' />
       <div className='max-w-3xl mx-auto'>
         <div className='bg-white overflow-hidden shadow rounded-lg w-128'>
           <div className='px-4 py-5 sm:p-6'>
