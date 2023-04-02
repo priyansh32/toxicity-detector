@@ -35,8 +35,8 @@ export default function Main() {
   }
   return (
     <>
-      <div className='max-w-3xl mx-auto'>
-        <div className='bg-white overflow-hidden shadow rounded-lg w-128'>
+      <div className='flex justify-center max-w-3xl mx-auto py-6 sm:px-6 lg:px-8'>
+        <div className='bg-white overflow-hidden shadow rounded-lg w-11/12 max-w-lg'>
           <div className='px-4 py-5 sm:p-6'>
             <h1 className='flex-shrink-0 py-4 font-bold'>
               Toxicity Detector - TensorflowJS
@@ -98,9 +98,9 @@ export default function Main() {
           </div>
         </div>
       </div>
-      <div className='py-5'>
+      <div className='flex flex-col justify-center max-w-7xl mx-auto py-6 sm:px-6 lg:px-8'>
         <h3 className='text-lg leading-6 font-medium text-gray-900'>Result</h3>
-        <dl className='mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7'>
+        <dl className='mt-5 grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7'>
           {result.map((item) => (
             <div
               key={item.label}
