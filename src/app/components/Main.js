@@ -19,8 +19,10 @@ export default function Main() {
   const [model, setModel] = useState(null);
 
   useEffect(() => {
-    toxicity.load(0.7).then((m) => setModel(m));
-    setmodelLoaded(true);
+    toxicity
+      .load(0.7)
+      .then((m) => setModel(m))
+      .then(() => setmodelLoaded(true));
   }, []);
 
   function runModel(sentences) {
@@ -99,8 +101,6 @@ export default function Main() {
                           ) : (
                             <>Check Toxicity</>
                           )}
-
-                          {/* Check Toxicity */}
                         </button>
                       </div>
                     </div>
