@@ -42,12 +42,12 @@ export default function RootLayout({ children }) {
                 Made with ❤️ by Priyansh
               </div>
             </div>
-            <div className='mt-4 border-t border-gray-700 pt-4 flex flex-col md:flex-row justify-between'>
+            <div className='mt-2 border-t border-gray-700 pt-2 flex flex-col md:flex-row justify-between'>
               <div className='flex flex-col'>
-                <span className='font-bold text-gray-100 uppercase mb-2'>
+                <span className='font-semibold text-gray-100 uppercase mb-1'>
                   Disclaimer
                 </span>
-                <span className='text-gray-400 text-sm'>
+                <span className='text-gray-400 text-xs'>
                   This project uses a pre-trained Text toxicity detection model
                   available at{" "}
                   <a
@@ -58,6 +58,13 @@ export default function RootLayout({ children }) {
                   >
                     TensorFlow.js
                   </a>
+                </span>
+                <span className='text-gray-400 text-xs'>
+                  The toxicity model used in this project provides a percentage
+                  that represents the likelihood that text contains toxic
+                  content. However, a higher percentage doesn{"'"}t necessarily
+                  mean higher toxicity. The model may make mistakes, so use your
+                  own judgement when interpreting the results.
                 </span>
               </div>
             </div>

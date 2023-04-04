@@ -7,10 +7,10 @@ module.exports = {
         128: "32rem",
       },
       height: {
-        "9/10-screen": "calc(100vh - 196px)",
+        "9/10-screen": "calc(100vh - 205px)",
       },
       minHeight: {
-        "9/10-screen": "calc(100vh - 196px)",
+        "9/10-screen": "calc(100vh - 205px)",
       },
     },
   },
