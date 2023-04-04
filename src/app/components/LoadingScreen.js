@@ -2,11 +2,12 @@ import Image from "next/image";
 
 export default function LoadingScreen() {
   return (
-    <div className='flex flex-col h-screen items-center justify-center max-w-7xl mx-auto sm:px-6 lg:px-8'>
+    <div className='flex flex-col min-h-9/10-screen items-center justify-center max-w-7xl mx-auto sm:px-6 lg:px-8'>
       {/* <div */}
       <Image
         alt='a cat sitting and waiting'
-        src={"/09c74fd8-9d51-4987-b8b5-a964bff73b3d.jpg"}
+        // src={"/09c74fd8-9d51-4987-b8b5-a964bff73b3d.jpg"}
+        src={"/cat-kinkytwt.gif"}
         width={100}
         height={100}
       />

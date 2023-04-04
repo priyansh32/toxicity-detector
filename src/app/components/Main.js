@@ -45,12 +45,7 @@ export default function Main() {
       {!modelLoaded ? (
         <LoadingScreen />
       ) : (
-        <div className='flex flex-col justify-evenly min-h-screen'>
-          <div className='flex justify-center mx-auto py-6 sm:px-6 lg:px-8 max-w-3xl w-11/12'>
-            <h1 className='flex-shrink-0 py-4 text-lg font-bold'>
-              Toxicity Detector - TensorflowJS
-            </h1>
-          </div>
+        <div className='flex flex-col justify-evenly min-h-9/10-screen'>
           <div className='flex justify-center mx-auto py-6 sm:px-6 lg:px-8 max-w-3xl w-11/12'>
             <div className='bg-white overflow-hidden shadow rounded-lg max-w-lg w-full'>
               <div className='px-4 py-5 sm:p-6'>
