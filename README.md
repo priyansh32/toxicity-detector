@@ -13,7 +13,7 @@ To get started with this project, you'll need to install Node.js and npm. You ca
 Once you have Node.js installed, you can clone this repository and install the dependencies by running the following commands:
 
 ```bash
-git clone https://github.com/<your-username>/toxicity-detector.git
+git clone https://github.com/priyansh32/toxicity-detector.git
 ```
 
 ```bash
